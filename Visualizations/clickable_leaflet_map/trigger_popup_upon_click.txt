@@ -1,0 +1,1 @@
+https://gis.stackexchange.com/questions/88273/triggering-click-event-on-leaflet-map
