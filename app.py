@@ -41,14 +41,14 @@ client = pymongo.MongoClient(conn)
 @app.route("/")
 def home():
     print("Server received request for 'Home' page...")
-    return "Welcome to my 'Home' page!"
+    return render_template("index.html")
 
 
 # About
 @app.route("/about")
 def about():
     print("Server received request for 'About' page...")
-    return "Welcome to my 'About' page!"
+    return render_template("about.html")
 
 
 if __name__ == "__main__":
