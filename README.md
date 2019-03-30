@@ -8,4 +8,4 @@ This project seeks to build a virtual veil of ignorance. The veil of ignorance i
 https://docs.google.com/document/d/1zXPsdNE2u7-KEQAaJjXGz-45_V9zxajtrv4pj16K1Mk/edit?usp=sharing
 
 ## Heroku URL
-veilofignorance.herokuapp.com
+https://veilofignorance.herokuapp.com/
