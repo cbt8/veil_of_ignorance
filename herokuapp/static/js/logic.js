@@ -12,16 +12,12 @@ var stateID = {05:'AR', 06:'CA', 17:'IL', 20:'KS', 28:'MS', 39:'OH', 48:'TX', 01
  46:'SD', 35:'NM', 53:'WA', 42:'PA', 12:'FL', 49:'UT', 21:'KY', 33:'NH', 45:'SC', 32:'NV', 15:'HI', 34:'NJ',
  09:'CT', 24:'MD', 25:'MA', 10:'DE', 11:'DC'}
 
-d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+var url = "https://d3js.org/us-10m.v1.json"
+
+d3.json(url, function(error, us) {
   if (error) throw error;
 
 var stateObject = topojson.feature(us, us.objects.states).features
-
-for (var i = 0; i<stateID[i]; i++) {
-  stateObject.push(
-    stateID[i]
-  )
-}
 
   svg.append("g")
     .attr("class", "states")
@@ -29,9 +25,9 @@ for (var i = 0; i<stateID[i]; i++) {
     .data(stateObject)
     .enter().append("path")
       .attr("d", path)
-      .on('click', function(){
-        console.log(us.objects.states)
-      });
+      .on("click", function(d){
+        console.log(d.id)
+      })
 
   svg.append("path")
       .attr("class", "state-borders")

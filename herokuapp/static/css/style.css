@@ -2,7 +2,7 @@
     fill: red;
   }
   
-  .state-borders {
+.state-borders {
     fill: none;
     stroke: #fff;
     stroke-width: 0.5px;
@@ -10,3 +10,9 @@
     stroke-linecap: round;
     pointer-events: none;
   }
+#svg{
+align-content: left
+  }
+.subject{
+  align-content: right
+}
