@@ -14,5 +14,6 @@
 align-content: left
   }
 .subject{
-  align-content: right
+  align-content: right;
+  border-style: solid;
 }

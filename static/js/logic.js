@@ -25,8 +25,11 @@ var stateObject = topojson.feature(us, us.objects.states).features
     .data(stateObject)
     .enter().append("path")
       .attr("d", path)
+      // d.id will be used to identify which database we are pulling from
       .on("click", function(d){
-        console.log(d.id)
+        var percents = [.1, .2, .3, .4];
+        // var stats = [.1, .2, .3, .4]
+        selectStat(percents)
       })
 
   svg.append("path")

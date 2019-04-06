@@ -2,7 +2,7 @@
 # Dependencies
 #################################################
 import pandas as pd 
-from flask import Flask, jsonify, render_template, redirect
+from flask import Flask, jsonify, render_template, redirect, url_for
 import pymongo
 import json
 
@@ -22,8 +22,8 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 # Set up Mongo/PyMongo
-conn = "mongodb://localhost:27017"
-client = pymongo.MongoClient(conn)
+# conn = "mongodb://localhost:27017"
+# client = pymongo.MongoClient(conn)
 
 # Map Database
     # db = client.usedCarsDB
