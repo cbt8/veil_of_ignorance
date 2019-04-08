@@ -19,8 +19,11 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 # Set up Mongo/PyMongo
-conn = "mongodb://localhost:27017"
-client = pymongo.MongoClient(conn)
+conn = "mongodb://heroku_2rsv5d25:iktn3mgtq8k4qluqgmlhug6kp6@ds233228.mlab.com:33228/heroku_2rsv5d25"
+client = pymongo.MongoClient(conn, 
+    connectTimeoutMS=30000,
+    socketTimeoutMS=None,
+    socketKeepAlive=True)
 
 # Map Database
 db = client.veilofignorancedb
