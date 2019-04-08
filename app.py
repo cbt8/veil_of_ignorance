@@ -26,7 +26,7 @@ client = pymongo.MongoClient(conn,
     socketKeepAlive=True)
 
 # Map Database
-db = client.veilofignorancedb
+db = client.heroku_2rsv5d25
 
 # Map collection (Table)
 veilofignorance = db.veilofignorance
