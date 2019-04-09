@@ -37,7 +37,7 @@ var stateObject = topojson.feature(us, us.objects.states).features
       .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })))
 });
 
-var dataURL = window.location.href + "/api/veilofignorance"
+//var dataURL = window.location.href + "api/veilofignorance"
 
 d3.json(dataURL, function(error, data) {
   if (error) throw error;
