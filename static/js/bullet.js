@@ -23,7 +23,7 @@
         
         if (wrap.empty()) wrap = g.append("g").attr("class", "wrap");
         // Compute the x-scale.
-        var x0 = d3.scale.linear()
+        var x0 = d3.scaleLinear()
         .domain([0, Math.max(rangez[0], markerz[0], measurez[0])])
         .range(reverse ? [width, 0] : [0, width]);
        
