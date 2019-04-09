@@ -1,5 +1,11 @@
 var trace1 = {
   labels: ["under 18 years", "working age population", "65 years and over"],
+  orientation: 'h',
+  showlegend: true,
+  legend: {
+    x: 1,
+    y: 1
+  },
   values: [23.3,59.6,17.1],
   type: "pie",
   marker:{
