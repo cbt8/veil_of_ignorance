@@ -27,8 +27,8 @@ var stateObject = topojson.feature(us, us.objects.states).features
       .attr("d", path)
       // d.id will be used to identify which database we are pulling from
       .on("click", function(d){
-        var percents = [.1, .2, .3, .4];
-        // var stats = [.1, .2, .3, .4]
+        working_population(d.id)
+        var percents = ageValues;
         selectStat(percents)
       })
 
