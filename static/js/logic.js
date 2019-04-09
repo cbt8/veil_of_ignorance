@@ -30,7 +30,8 @@ var stateObject = topojson.feature(us, us.objects.states).features
       .on("click", function(d){
         // setStatistics('');
         working_population(d.id);
-        // selectStat(stats);
+        ethnicity(d.id);
+        education(d.id);
       })
 
   svg.append("path")
