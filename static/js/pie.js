@@ -25,8 +25,8 @@ var data = [trace1];
 
 var layout = {
   title: "% of people in working age population",
-  height: 400,
-  width: 400
+  height: 500,
+  width: 500
 };
 
 // the first argument below ("plot") refers to the id of the div where the play will be displayed
