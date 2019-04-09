@@ -16,3 +16,52 @@ align-content: left
 #subject{
   float: left;
 }
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  padding-top: 40px;
+  position: relative;
+  /*width: 100%;*/
+}
+table{
+  width:60%;
+  margin-left:auto; 
+  margin-right:auto;
+}
+td{width:50%;}
+.bulleT { font: 12px Arial; margin-left:auto;margin-right:auto;}
+/* .bulleT .marker { stroke: rgb(164, 209, 0); stroke-width: 2px;}
+.bulleT .marker.s0 { fill-opacity:0; stroke: #02d9ff; stroke-width: 2px; }
+.bulleT .marker.s1 { fill-opacity:0; stroke: #000; stroke-width: 2px; }
+.bulleT .tick line { stroke: #666; stroke-width: .5px; }
+
+.bulleT .range.s0 { fill: rgb(87, 0, 122); }
+.bulleT .range.s1 { fill: rgba(166, 41, 204, 0.767); }
+.bulleT .range.s2 { fill: #efc6e9bb; }
+.bulleT .range.s3 { fill: #29A3CC; } 
+.bulleT .range.s4 { fill: #005C7A; }
+
+.bulleT .measure.s0 { fill: rgb(231, 39, 25); } */
+/* .bulleT .measure.s1 { fill: #999999; } 
+.bulleT .measure.s2 { fill: #eeeeee; }
+.bulleT .measure.s3 { fill: #999999; }
+.bulleT .measure.s4 { fill: #4D4D4D; } */
+
+.bulleT .title { font-size: 12px; font-weight: normal; }
+/* .bulleT .subtitle.s04 { fill: #555555cb; font-size: 10px; font-weight: bold;} 
+.bulleT .subtitle.s13 { fill: #999999; font-size: 12px; font-weight: bold;}
+.bulleT .subtitle.s2  { fill: #999999; font-size: 10px;} */
+/* .bullet .marker { stroke: purple; stroke-width: 2px; } */
+.bulleT .marker.s0 { fill-opacity:0; stroke: #ff024e; stroke-width: 3px; }
+/* .bulleT .tick line { stroke: rgb(14, 14, 14); stroke-width: .2px; } */
+.bulleT .tick line { stroke: #666; stroke-width: .5px; }
+
+.bulleT .range.s0 { fill: rgba(112, 111, 111, 0.329); }
+.bulleT .range.s1 { fill: #eee; }
+.bulleT .range.s2 { fill: #ddd; }
+.bulleT .range.s3 { fill: #ccc; }
+.bulleT .measure.s0 { fill: purple; }
+.bulleT .measure.s1 { fill: rgb(207, 12, 207); }
+/* .bulleT .title { font-size: 14px; font-weight: bold; }
+.bulleT .subtitle { fill: #999; } */
