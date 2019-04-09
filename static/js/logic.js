@@ -14,6 +14,7 @@ var stateID = {05:'AR', 06:'CA', 17:'IL', 20:'KS', 28:'MS', 39:'OH', 48:'TX', 01
 
 var url = "https://d3js.org/us-10m.v1.json"
 
+
 d3.json(url, function(error, us) {
   if (error) throw error;
 
@@ -27,9 +28,10 @@ var stateObject = topojson.feature(us, us.objects.states).features
       .attr("d", path)
       // d.id will be used to identify which database we are pulling from
       .on("click", function(d){
-        working_population(d.id)
-        var percents = ageValues;
-        selectStat(percents)
+        // setStatistics('');
+        working_population(d.id);
+        ethnicity(d.id);
+        education(d.id);
       })
 
   svg.append("path")
@@ -39,9 +41,9 @@ var stateObject = topojson.feature(us, us.objects.states).features
 
 //var dataURL = window.location.href + "api/veilofignorance"
 
-d3.json(dataURL, function(error, data) {
-  if (error) throw error;
+// d3.json(dataURL, function(error, data) {
+//   if (error) throw error;
 
-  console.log(data)
+//   console.log(data)
 
-});
+// });

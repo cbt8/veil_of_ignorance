@@ -7,6 +7,12 @@ function selectStat(stats) {
 
     statList = [];
     selector = 0;
+    // console.log(stats)
+
+if (!stats) {
+    stats = [1];
+}
+
     stats.forEach( percent => {
         percentage = Math.floor(100 * percent);
         for (i = 0; i < percentage; i++) {
