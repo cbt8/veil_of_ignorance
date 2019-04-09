@@ -1,11 +1,15 @@
 var url = "api/veilofignorance";
+working_population(42);
+ethnicity(42);
+education(42);
 
-var pieStats;
-async function setStatistics(statistics) {
+
+var pieageValues;
+function setStatistics(statistics) {
   //console.log(`${state}: ${statistics}`)
-  pieStats = statistics;
+  pieageValues = statistics;
 }
-async function working_population(stateid) {
+function working_population(stateid) {
   var pieFunc;
   d3.json(url, function (error, response) {
     if (error) throw error;
@@ -50,15 +54,41 @@ async function working_population(stateid) {
 
 
     Plotly.newPlot("pie1", data, layout);
-    Plotly.newPlot("pie2", data, layout);
-    Plotly.newPlot("pie3", data, layout);
+    // Plotly.newPlot("pie2", data, layout);
+    // Plotly.newPlot("pie3", data, layout);
     // return ageValues;
-    await setStatistics(ageValues);
-console.log(pieStats)
+
+    function selectStat(ageValues) {
+      /* selectStat takes a list of percentages and 
+      will return a random number between 0 and the 
+      length of the list. */
+  
+      statList = [];
+      selector = 0;
+      // console.log(ageValues)
+  
+  if (!ageValues) {
+      ageValues = [1];
+  }
+  
+      ageValues.forEach( percent => {
+          percentage = Math.floor(100 * percent);
+          for (i = 0; i < percentage; i++) {
+              statList.push(selector);
+          }
+          selector++;
+      });
+          // console.log(statList);
+          x = Math.floor(Math.random() * 100);
+          console.log(`x = ${x}`);
+          return statList[x];
+      
+  }
+
   })
 
-  // console.log(pieStats)
-  // return pieStats;
+  // console.log(pieageValues)
+  // return pieageValues;
 }
 
 
