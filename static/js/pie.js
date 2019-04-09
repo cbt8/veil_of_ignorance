@@ -150,33 +150,7 @@ function ethnicity (stateid) {
 
    };
 
-   Plotly.newPlot("pie1", data, layout);
-   //Plotly.newPlot("pie2", data, layout);
-  }
-    
-   )}; 
-
-////////////////second function
-function ethnicity (stateid) {
-    d3.json(url, function(error, response)
-     {
-      if (error) throw error;
-    //console.log(response);
-    //gets the data for that state
-    var state_data = response.filter(row => row.StateID== stateid)
-    //console.log(state_data)
-    var white_alone = parseFloat(state_data[0]["White alone, percent"])
-    var black_alone = parseFloat(state_data[0]["Black or African American alone, percent(a)"])
-    //var american_indian_alone = parseFloat(state_data[0]["American Indian and Alaska Native alone, percent(a)"])
-    var asian_alone = parseFloat(state_data[0]["Asian alone, percent(a)"])
-    //var hawaiian_alone = parseFloat(state_data[0]["Native Hawaiian and Other Pacific Islander alone, percent(a)"])
-    var two_or_more = parseFloat(state_data[0]["Two or More Races, percent"])
-    var hispanic = parseFloat(state_data[0]["Hispanic or Latino, percent(b)"])
-    //var white_not_hispanic = parseFloat(state_data[0]["White alone, not Hispanic or Latino, percent"])
-    //var other = american_indian_alone + hawaiian_alone
-    var state_name = state_data[0]["State"]
 Plotly.newPlot("bar1", data2, layout2)
-
 
 function selectStat(ethnicityValues) {
   /* selectStat takes a list of percentages and 
