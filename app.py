@@ -145,6 +145,7 @@ def initdb():
 
     # Creates a collection in the database and inserts documents
     db.veilofignorance.insert_many(records) 
+    return
 
 # API
 @app.route("/api/veilofignorance")
