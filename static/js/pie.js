@@ -49,9 +49,6 @@ function working_population(stateid) {
 
 
     Plotly.newPlot("pie1", data, layout);
-    // Plotly.newPlot("pie2", data, layout);
-    // Plotly.newPlot("pie3", data, layout);
-    // return ageValues;
 
     function selectStat(ageValues) {
       /* selectStat takes a list of percentages and 
@@ -78,12 +75,11 @@ function working_population(stateid) {
           console.log(`x = ${x}`);
           return statList[x];
       
-  }
+    }
+selectStat(ageValues);
 
   })
 
-  // console.log(pieageValues)
-  // return pieageValues;
 }
 
 function ethnicity (stateid) {
@@ -110,11 +106,12 @@ function ethnicity (stateid) {
   var asian_aloneUs = parseFloat(us_data[0]["Asian alone, percent(a)"])
   var two_or_moreUs = parseFloat(us_data[0]["Two or More Races, percent"])
   var hispanicUs = parseFloat(us_data[0]["Hispanic or Latino, percent(b)"])
+  var ethnicityValues = [white_alone, black_alone, asian_alone, hispanic, two_or_more]
   //var otherUs =  parseFloat(us_data[0]["American Indian and Alaska Native alone, percent(a)"])+parseFloat(us_data[0]["Native Hawaiian and Other Pacific Islander alone, percent(a)"])
   //bar chart
   var state_trace2 = {
     x: ["White", "Black/African American", "Asian", "Hispanic/Latino", "2 or more races"],
-    y: [white_alone, black_alone, asian_alone, hispanic, two_or_more],
+    y: ethnicityValues,
     type: "bar",
     marker:{
     color: [
@@ -153,7 +150,37 @@ function ethnicity (stateid) {
 
    };
 
-Plotly.newPlot("bar1", data2, layout2)})};
+Plotly.newPlot("bar1", data2, layout2)
+
+function selectStat(ethnicityValues) {
+  /* selectStat takes a list of percentages and 
+  will return a random number between 0 and the 
+  length of the list. */
+
+  statList = [];
+  selector = 0;
+  // console.log(ethnicityValues)
+
+if (!ethnicityValues) {
+  ethnicityValues = [1];
+}
+
+  ethnicityValues.forEach( percent => {
+      percentage = Math.floor(100 * percent);
+      for (i = 0; i < percentage; i++) {
+          statList.push(selector);
+      }
+      selector++;
+  });
+      // console.log(statList);
+      x = Math.floor(Math.random() * 100);
+      console.log(`x = ${x}`);
+      return statList[x];
+
+}
+selectStat(ethnicityValues);
+
+})};
 
 function education (stateid) {
   d3.json(url, function(error, response)
@@ -169,11 +196,11 @@ function education (stateid) {
   var us_data = response.filter(row => row.StateID== '100')
   var highschoolUs = parseFloat(us_data[0]["High school graduate or higher, percent of persons age 25 years+, 2013-2017"])
   var bachelorUs = parseFloat(us_data[0]["Bachelor's degree or higher, percent of persons age 25 years+, 2013-2017"])
-  
+  var educationValues = [highschool, bachelor]
   //bar chart
   var state_trace3 = {
     x: ["High school degree", "Bachelor's degree"],
-    y: [highschool, bachelor],
+    y: educationValues,
     //orientation: 'h',
     type: "bar",
     marker:{
@@ -186,7 +213,6 @@ function education (stateid) {
    var us_trace3 = {
     x: ["High school degree", "Bachelor's degree"],
     y: [highschoolUs, bachelorUs],
-    //orientation: 'h',
     type: "bar",
     marker:{
     color: [
@@ -208,5 +234,32 @@ function education (stateid) {
 
 Plotly.newPlot("bar2", data3, layout3);
 
+  function selectStat(educationValues) {
+  /* selectStat takes a list of percentages and 
+  will return a random number between 0 and the 
+  length of the list. */
+
+  statList = [];
+  selector = 0;
+  // console.log(educationValues)
+
+if (!educationValues) {
+  educationValues = [1];
+}
+
+  educationValues.forEach( percent => {
+      percentage = Math.floor(100 * percent);
+      for (i = 0; i < percentage; i++) {
+          statList.push(selector);
+      }
+      selector++;
+  });
+      // console.log(statList);
+      x = Math.floor(Math.random() * 100);
+      console.log(`x = ${x}`);
+      return statList[x]; 
+
+}
+selectStat(educationValues);
   }
    )}; 
