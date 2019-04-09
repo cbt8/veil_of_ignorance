@@ -1,27 +1,5 @@
-<<<<<<< HEAD
 var url = "api/veilofignorance";
-=======
-var trace1 = {
-  labels: ["under 18 years", "working age population", "65 years and over"],
-  orientation: 'h',
-  showlegend: true,
-  legend: {
-    x: 1,
-    y: 1
-  },
-  values: [23.3,59.6,17.1],
-  type: "pie",
-  marker:{
-  colors: [
-    'orange',
-    'purple',
-    'red',
-    'blue',
-    'green'
-    ]}
-};
->>>>>>> b29f15e8aa94b84757cf205dee80e3c855e1e520
-
+///////////////////first function
 function working_population (stateid) {
   d3.json(url, function(error, response)
    {
@@ -35,6 +13,7 @@ function working_population (stateid) {
   console.log(person_over_65)
   var person_working = 100-(parseFloat(person_under_18, 10)+parseFloat(person_over_65, 10))
   console.log(person_working)
+  var state_name = state_data[0]["State"]
   //pie chart
   var trace1 = {
     labels: ["under 18 years", "working age population", "65 years and over"],
@@ -50,41 +29,175 @@ function working_population (stateid) {
     colors: [
       'orange',
       'purple',
-      'red',
-      'blue',
-      'green'
+      'black'
       ]}
    };
 
    var data = [trace1];
    var layout = {
-    title: "% of people in working age population",
+    title: `Working age population for ${state_name}`,
     height: 400,
-    width: 400
+    width: 400,
+    showlegend: false
    };
 
-<<<<<<< HEAD
-   Plotly.newPlot("pie", data, layout);
+   Plotly.newPlot("pie1", data, layout);
    //Plotly.newPlot("pie2", data, layout);
-   //Plotly.newPlot("pie3", data, layout);
-  
-=======
-var layout = {
-  title: "% of people in working age population",
-  height: 400,
-  width: 400
-};
-
-// the first argument below ("plot") refers to the id of the div where the play will be displayed
-// the second argument refers to our trace
-// the third argument is optional. It refers to the chart's layout details.
-Plotly.newPlot("pie1", data, layout);
-Plotly.newPlot("pie2", data, layout);
-Plotly.newPlot("pie3", data, layout);
->>>>>>> b29f15e8aa94b84757cf205dee80e3c855e1e520
-
+   Plotly.newPlot("pie3", data, layout);
   }
     
    )}; 
   
   working_population(42);
+
+////////////////second function
+function ethnicity (stateid) {
+    d3.json(url, function(error, response)
+     {
+      if (error) throw error;
+    console.log(response);
+    //gets the data for that state
+    var state_data = response.filter(row => row.StateID== stateid)
+    //console.log(state_data)
+    var white_alone = parseFloat(state_data[0]["White alone, percent"])
+    var black_alone = parseFloat(state_data[0]["Black or African American alone, percent(a)"])
+    //var american_indian_alone = parseFloat(state_data[0]["American Indian and Alaska Native alone, percent(a)"])
+    var asian_alone = parseFloat(state_data[0]["Asian alone, percent(a)"])
+    //var hawaiian_alone = parseFloat(state_data[0]["Native Hawaiian and Other Pacific Islander alone, percent(a)"])
+    var two_or_more = parseFloat(state_data[0]["Two or More Races, percent"])
+    var hispanic = parseFloat(state_data[0]["Hispanic or Latino, percent(b)"])
+    //var white_not_hispanic = parseFloat(state_data[0]["White alone, not Hispanic or Latino, percent"])
+    //var other = american_indian_alone + hawaiian_alone
+    var state_name = state_data[0]["State"]
+
+    //gets the data for total US
+    var us_data = response.filter(row => row.StateID== '100')
+    var white_aloneUs = parseFloat(us_data[0]["White alone, percent"])
+    var black_aloneUs = parseFloat(us_data[0]["Black or African American alone, percent(a)"])
+    var asian_aloneUs = parseFloat(us_data[0]["Asian alone, percent(a)"])
+    var two_or_moreUs = parseFloat(us_data[0]["Two or More Races, percent"])
+    var hispanicUs = parseFloat(us_data[0]["Hispanic or Latino, percent(b)"])
+    //var otherUs =  parseFloat(us_data[0]["American Indian and Alaska Native alone, percent(a)"])+parseFloat(us_data[0]["Native Hawaiian and Other Pacific Islander alone, percent(a)"])
+
+    //bar chart
+    var state_trace2 = {
+      x: ["White", "Black/African American", "Asian", "Hispanic/Latino", "2 or more races"],
+      y: [white_alone, black_alone, asian_alone, hispanic, two_or_more],
+      type: "bar",
+      marker:{
+      color: [
+        'purple',
+        'purple',
+        'purple',
+        'purple',
+        'purple',
+        'purple'
+        ]},
+      name: state_name
+     };
+
+     var us_trace2 = {
+      x: ["White", "Black/African American", "Asian", "Hispanic/Latino", "2 or more races"],
+      y: [white_aloneUs, black_aloneUs, asian_aloneUs, hispanicUs, two_or_moreUs],
+      type: "bar",
+      marker:{
+      color: [
+        'orange',
+        'orange',
+        'orange',
+        'orange',
+        'orange',
+        'orange'
+        ]},
+        name: 'Total US'
+     };
+
+     
+     var data2 = [state_trace2, us_trace2];
+     var layout2 = {
+      title: `Ethnicity breakdown for ${state_name}`,
+      barmode:'group',
+      height: 400,
+      width: 500,
+      showlegend: false,
+
+     };
+  
+  
+  //Plotly.newPlot("pie1", data, layout);
+  Plotly.newPlot("bar1", data2, layout2);
+  //Plotly.newPlot("pie3", data, layout);
+  
+    }
+     )}; 
+
+////////////////third function
+function education (stateid) {
+  d3.json(url, function(error, response)
+   {
+    if (error) throw error;
+  console.log(response);
+  //gets the data for that state
+  var state_data = response.filter(row => row.StateID== stateid)
+  //console.log(state_data)
+  var highschool = parseFloat(state_data[0]["High school graduate or higher, percent of persons age 25 years+, 2013-2017"])
+  var bachelor = parseFloat(state_data[0]["Bachelor's degree or higher, percent of persons age 25 years+, 2013-2017"])
+  var state_name = state_data[0]["State"]
+
+  //gets the data for total US
+  var us_data = response.filter(row => row.StateID== '100')
+  var highschoolUs = parseFloat(us_data[0]["High school graduate or higher, percent of persons age 25 years+, 2013-2017"])
+  var bachelorUs = parseFloat(us_data[0]["Bachelor's degree or higher, percent of persons age 25 years+, 2013-2017"])
+  
+  //bar chart
+  var state_trace3 = {
+    x: ["High school degree", "Bachelor's degree"],
+    y: [highschool, bachelor],
+    //orientation: 'h',
+    type: "bar",
+    marker:{
+    color: [
+      'black',
+      'black'
+      ]},
+    name: state_name
+   };
+
+   var us_trace3 = {
+    x: ["High school degree", "Bachelor's degree"],
+    y: [highschoolUs, bachelorUs],
+    //orientation: 'h',
+    type: "bar",
+    marker:{
+    color: [
+      'purple',
+      'purple'
+      ]},
+      name: 'Total US'
+   };
+
+   var data3 = [state_trace3, us_trace3];
+   var layout3 = {
+    title: `Minimum education breakdown for ${state_name}`,
+    barmode:'group',
+    height: 400,
+    width: 400,
+    showlegend: false,
+    xaxis: {automargin:true},
+    yxis: {automargin:true}
+   };
+
+
+//Plotly.newPlot("pie1", data, layout);
+//Plotly.newPlot("bar1", data2, layout2);
+Plotly.newPlot("bar2", data3, layout3);
+
+  }
+   )}; 
+
+
+
+
+    working_population(42);
+    ethnicity(42);
+    education(42);
