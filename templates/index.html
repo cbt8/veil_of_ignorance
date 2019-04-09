@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Veil of Ignorance</title>
-    <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
- 
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Veil of Ignorance</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarColor02">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-        </div>
-      </nav>
-      <h1>Step behind The Veil...</h1>
-      <p>Click on a state to be assigned a person.</p>
-<div class="row">
-    <svg width="960" height="600"></svg>
 
-<div class="container" id="subject">
-    <div class="col-md-3">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Veil of Ignorance</title>
+  <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index">Veil of Ignorance</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="about">About</a>
+        </li>
+    </div>
+  </nav>
+  <h1>Step behind The Veil...</h1>
+  <p>Click on a state to be assigned a person.</p>
+  <div class="row">
+    <svg preserveAspectRatio="xMidYMid meet" x="0" y="0" viewBox="0 0 960 600" width="720" height="450">
+    </svg>
+
+    <div class="container" id="subject">
+      <div class="col-lg-3">
         <div class="align-self-end">
-        <table class="table table-hover">
+          <table class="table table-hover">
             <thead>
               <tr class="table-dark">
                 <th scope="col">Subject</th>
@@ -43,23 +50,34 @@
             <tbody>
               <tr class="table-active">
                 <td scope="row">Gender:</td>
-                <td scope="row"></td>
-                <td></td>
+                <td id="gender" scope="row"></td>
               </tr>
               <tr class="table-default">
                 <td scope="row">Age:</td>
-                <td scope="row"></td>
+                <td id="age" scope="row"></td>
               </tr>
               <tr class="table-active">
                 <td scope="row">Ethnicity:</td>
-                <td scope="row"></td>
+                <td id="ethnicity" scope="row"></td>
               </tr>
             </tbody>
-          </table> 
+          </table>
         </div>
-        </div>
-        </div>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div id="plot1" class="responsive-plot">
+      <div class="col-lg-4">
+        <div id="pie1"></div>
+      </div>
+    </div>
+    <div id="plot2" class="responsive-plot">
+      <div class="col-md-4">
+        <div id="pie2"></div>
+      </div>
+    </div>
+<<<<<<< HEAD
         <div id="pie"></div>        
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -69,5 +87,23 @@
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
         
+=======
+    <div id="plot3" class="responsive-plot">
+      <div class="col-md-4">
+        <div id="pie3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <!-- <script type="text/javascript" src="/static/js/logic.js"></script> -->
+  <script src="{{ url_for('static', filename='js/selectStat.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
+
+>>>>>>> b29f15e8aa94b84757cf205dee80e3c855e1e520
 </body>
+
 </html>

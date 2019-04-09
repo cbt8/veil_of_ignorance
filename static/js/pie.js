@@ -1,4 +1,26 @@
+<<<<<<< HEAD
 var url = "api/veilofignorance";
+=======
+var trace1 = {
+  labels: ["under 18 years", "working age population", "65 years and over"],
+  orientation: 'h',
+  showlegend: true,
+  legend: {
+    x: 1,
+    y: 1
+  },
+  values: [23.3,59.6,17.1],
+  type: "pie",
+  marker:{
+  colors: [
+    'orange',
+    'purple',
+    'red',
+    'blue',
+    'green'
+    ]}
+};
+>>>>>>> b29f15e8aa94b84757cf205dee80e3c855e1e520
 
 function working_population (stateid) {
   d3.json(url, function(error, response)
@@ -41,10 +63,25 @@ function working_population (stateid) {
     width: 400
    };
 
+<<<<<<< HEAD
    Plotly.newPlot("pie", data, layout);
    //Plotly.newPlot("pie2", data, layout);
    //Plotly.newPlot("pie3", data, layout);
   
+=======
+var layout = {
+  title: "% of people in working age population",
+  height: 400,
+  width: 400
+};
+
+// the first argument below ("plot") refers to the id of the div where the play will be displayed
+// the second argument refers to our trace
+// the third argument is optional. It refers to the chart's layout details.
+Plotly.newPlot("pie1", data, layout);
+Plotly.newPlot("pie2", data, layout);
+Plotly.newPlot("pie3", data, layout);
+>>>>>>> b29f15e8aa94b84757cf205dee80e3c855e1e520
 
   }
     
