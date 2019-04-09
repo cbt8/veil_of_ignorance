@@ -39,7 +39,7 @@ var stateObject = topojson.feature(us, us.objects.states).features
 
 });
 
-var dataURL = window.location.href + "/api/veilofignorance"
+//var dataURL = window.location.href + "api/veilofignorance"
 
 d3.json(dataURL, function(error, data) {
   if (error) throw error;
