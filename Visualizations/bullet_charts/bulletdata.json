@@ -1,0 +1,16 @@
+[
+    {
+      "title":"Persons in poverty",
+      "subtitle":"(%)",
+      "ranges":[10.9,13.0,14.8],
+      "measures":[12.3],
+      "markers":[12.9]
+    },
+    {
+      "title":"Memory Used",
+      "subtitle":"MBytes",
+      "ranges":[256,512,1024],
+      "measures":[768],
+      "markers":[900]
+    }
+  ]

@@ -8,7 +8,7 @@ function working_population (stateid) {
   d3.json(url, function(error, response)
    {
     if (error) throw error;
-  console.log(response);
+  //console.log(response);
   var state_data = response.filter(row => row.StateID== stateid)
   var person_under_18 = parseFloat(state_data[0]["Persons under 18 years, percent"])
   var person_over_65 = parseFloat(state_data[0]["Persons 65 years and over, percent"])
@@ -43,7 +43,6 @@ function working_population (stateid) {
 
    Plotly.newPlot("pie1", data, layout);
    //Plotly.newPlot("pie2", data, layout);
-   Plotly.newPlot("pie3", data, layout);
   }
     
    )}; 
@@ -53,7 +52,7 @@ function ethnicity (stateid) {
     d3.json(url, function(error, response)
      {
       if (error) throw error;
-    console.log(response);
+    //console.log(response);
     //gets the data for that state
     var state_data = response.filter(row => row.StateID== stateid)
     //console.log(state_data)
@@ -130,7 +129,7 @@ function education (stateid) {
   d3.json(url, function(error, response)
    {
     if (error) throw error;
-  console.log(response);
+  //console.log(response);
   //gets the data for that state
   var state_data = response.filter(row => row.StateID== stateid)
   //console.log(state_data)
