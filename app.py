@@ -5,8 +5,6 @@ import pandas as pd
 from flask import Flask, jsonify, render_template, redirect, url_for
 import pymongo
 import json
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 
 #################################################
 # Helper Functions
