@@ -13,7 +13,7 @@
 #svg{
 align-content: left
   }
-.subject{
-  align-content: right;
+#subject{
+float: left;
   border-style: solid;
 }

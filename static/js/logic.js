@@ -35,8 +35,6 @@ var stateObject = topojson.feature(us, us.objects.states).features
   svg.append("path")
       .attr("class", "state-borders")
       .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })))
-
-
 });
 
 var dataURL = window.location.href + "/api/veilofignorance"
