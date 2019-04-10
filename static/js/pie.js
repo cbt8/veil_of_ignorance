@@ -17,6 +17,7 @@ function working_population(stateid) {
     var person_working = 100 - (parseFloat(person_under_18, 10) + parseFloat(person_over_65, 10))
     //  console.log(person_working)
     var ageValues = [person_under_18, person_working, person_over_65]
+    var ageTitles = ["Younger than 18", "Working age (18-65)", "Older than 65"];
     var state_name = state_data[0]["State"]
     //pie chart
     var trace1 = {
@@ -64,19 +65,21 @@ function working_population(stateid) {
   }
   
       ageValues.forEach( percent => {
-          percentage = Math.floor(100 * percent);
+          percentage = Math.floor(percent);
           for (i = 0; i < percentage; i++) {
               statList.push(selector);
           }
           selector++;
       });
-          // console.log(statList);
+          console.log(`Age: ${statList}`);
           x = Math.floor(Math.random() * 100);
           console.log(`x = ${x}`);
           return statList[x];
       
     }
-selectStat(ageValues);
+    d3.select("#age").text(`${ageTitles[selectStat(ageValues)]}`);
+    genderTitles = ["Female", "Male"];
+    d3.select("#gender").text(`${["Female", "Male"][selectStat([50, 50])]}`);
 
   })
 
@@ -107,6 +110,7 @@ function ethnicity (stateid) {
   var two_or_moreUs = parseFloat(us_data[0]["Two or More Races, percent"])
   var hispanicUs = parseFloat(us_data[0]["Hispanic or Latino, percent(b)"])
   var ethnicityValues = [white_alone, black_alone, asian_alone, hispanic, two_or_more]
+  var ethnicityTitles = ["White", "Black", "Asian", "Hispanic", "Two or More Races"];
   //var otherUs =  parseFloat(us_data[0]["American Indian and Alaska Native alone, percent(a)"])+parseFloat(us_data[0]["Native Hawaiian and Other Pacific Islander alone, percent(a)"])
   //bar chart
   var state_trace2 = {
@@ -159,26 +163,27 @@ function selectStat(ethnicityValues) {
 
   statList = [];
   selector = 0;
-  // console.log(ethnicityValues)
+  console.log(ethnicityValues)
 
 if (!ethnicityValues) {
   ethnicityValues = [1];
 }
 
   ethnicityValues.forEach( percent => {
-      percentage = Math.floor(100 * percent);
-      for (i = 0; i < percentage; i++) {
+      integer = Math.floor(percent);
+      for (i = 0; i < integer; i++) {
           statList.push(selector);
       }
       selector++;
   });
-      // console.log(statList);
+      console.log(`Ethnicity: ${statList}`);
       x = Math.floor(Math.random() * 100);
       console.log(`x = ${x}`);
       return statList[x];
 
 }
-selectStat(ethnicityValues);
+randomEthnicity = selectStat(ethnicityValues);
+    d3.select("#ethnicity").text(`${ethnicityTitles[randomEthnicity]}`);
 
 })};
 
@@ -197,6 +202,7 @@ function education (stateid) {
   var highschoolUs = parseFloat(us_data[0]["High school graduate or higher, percent of persons age 25 years+, 2013-2017"])
   var bachelorUs = parseFloat(us_data[0]["Bachelor's degree or higher, percent of persons age 25 years+, 2013-2017"])
   var educationValues = [highschool, bachelor]
+  var educationTitles = ["High School Diploma", "Bachelor's"]
   //bar chart
   var state_trace3 = {
     x: ["High school degree", "Bachelor's degree"],
@@ -248,7 +254,7 @@ if (!educationValues) {
 }
 
   educationValues.forEach( percent => {
-      percentage = Math.floor(100 * percent);
+      percentage = Math.floor(percent);
       for (i = 0; i < percentage; i++) {
           statList.push(selector);
       }
@@ -256,10 +262,11 @@ if (!educationValues) {
   });
       // console.log(statList);
       x = Math.floor(Math.random() * 100);
-      console.log(`x = ${x}`);
+      // console.log(`x = ${x}`);
       return statList[x]; 
 
 }
-selectStat(educationValues);
+// randomEducation = selectStat(educationValues);
+//     d3.select("#education").text(`${educationTitles[randomEducation]}`);
   }
    )}; 
