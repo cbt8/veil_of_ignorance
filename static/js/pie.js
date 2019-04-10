@@ -1,7 +1,7 @@
 var url = "api/veilofignorance";
-// working_population(42);
-// ethnicity(42);
-// education(42);
+//working_population(48);
+//ethnicity(48);
+//education(48);
 
 function working_population(stateid) {
   var pieFunc;
