@@ -54,15 +54,17 @@ def allStates():
 
     return jsonify(allStates)
 
-
-
-
 # About
 @app.route("/about")
 def about():
     print("Server received request for 'About' page...")
     return render_template("about.html")
 
+# User-friendly API
+@app.route("/api")
+def api():
+    print("Server received request for 'API' page...")
+    return render_template("api.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

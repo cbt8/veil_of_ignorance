@@ -1,6 +1,6 @@
 var url = "api/veilofignorance";
 
-bulletdata(42);
+// bulletdata(42);
 
 function bulletdata (stateid) {
   d3.json(url, function(error, response)

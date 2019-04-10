@@ -29,6 +29,9 @@
         <li class="nav-item">
           <a class="nav-link" href="about">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="api">API</a>
+        </li>
     </div>
   </nav>
   <h1>Step behind The Veil...</h1>
@@ -41,9 +44,9 @@
       <div class="col-lg-3">
         <div class="align-self-end">
           <table class="table table-hover">
-            <thead>
-              <tr class="table-dark">
-                <th scope="col">Subject</th>
+            <thead align="center">
+              <tr class="table-danger">
+                <th scope="col">You are:</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -59,6 +62,14 @@
               <tr class="table-active">
                 <td scope="row">Ethnicity:</td>
                 <td id="ethnicity" scope="row"></td>
+              </tr>
+              <tr class="table-default">
+                <td scope="row">Education:</td>
+                <td id="education" scope="row"></td>
+              </tr>
+              <tr class="table-active">
+                <td scope="row">Income:</td>
+                <td id="income" scope="row"></td>
               </tr>
             </tbody>
           </table>
@@ -77,22 +88,18 @@
           <div id="bar1"></div>
         </div>
       </div>
-      <div id="plot3" class="responsive-plot">
-        <div class="col-md-4">
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
-          <div id="BulleT_horizontal"></div> 
-        </div>
-      <div id="plot4" class="responsive-plot">
+    </div>
+    <div class="row">
+        <div id="plot3" class="responsive-plot">
           <div class="col-md-4">
-            <!-- <div id="bar2"></div> -->
-            <div id="bar2"></div> 
+            <div id="BulleT_horizontal"></div> 
+          </div>
+        <div id="plot4" class="responsive-plot">
+            <div class="col-md-4">
+              <div id="bar2"></div> 
+          </div>
         </div>
       </div>
-    </div>
         
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://d3js.org/topojson.v2.min.js"></script>
