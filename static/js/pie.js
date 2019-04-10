@@ -7,15 +7,10 @@ function working_population(stateid) {
   var pieFunc;
   d3.json(url, function (error, response) {
     if (error) throw error;
-    //  console.log(response);
     var state_data = response.filter(row => row.StateID == stateid)
-    //console.log(state_data)
     var person_under_18 = parseFloat(state_data[0]["Persons under 18 years, percent"])
-    //  console.log(person_under_18)
     var person_over_65 = parseFloat(state_data[0]["Persons 65 years and over, percent"])
-    //  console.log(person_over_65)
     var person_working = 100 - (parseFloat(person_under_18, 10) + parseFloat(person_over_65, 10))
-    //  console.log(person_working)
     var ageValues = [person_under_18, person_working, person_over_65]
     var ageTitles = ["Younger than 18", "Working age (18-65)", "Older than 65"];
     var state_name = state_data[0]["State"]
@@ -58,7 +53,6 @@ function working_population(stateid) {
   
       statList = [];
       selector = 0;
-      // console.log(ageValues)
   
   if (!ageValues) {
       ageValues = [1];
@@ -71,14 +65,11 @@ function working_population(stateid) {
           }
           selector++;
       });
-          console.log(`Age: ${statList}`);
           x = Math.floor(Math.random() * 100);
-          console.log(`x = ${x}`);
           return statList[x];
       
     }
     d3.select("#age").text(`${ageTitles[selectStat(ageValues)]}`);
-    genderTitles = ["Female", "Male"];
     d3.select("#gender").text(`${["Female", "Male"][selectStat([50, 50])]}`);
 
   })
@@ -91,7 +82,6 @@ function ethnicity (stateid) {
     if (error) throw error;
   //gets the data for that state
   var state_data = response.filter(row => row.StateID== stateid)
-  //console.log(state_data)
   var white_alone = parseFloat(state_data[0]["White alone, percent"])
   var black_alone = parseFloat(state_data[0]["Black or African American alone, percent(a)"])
   //var american_indian_alone = parseFloat(state_data[0]["American Indian and Alaska Native alone, percent(a)"])
@@ -163,7 +153,6 @@ function selectStat(ethnicityValues) {
 
   statList = [];
   selector = 0;
-  console.log(ethnicityValues)
 
 if (!ethnicityValues) {
   ethnicityValues = [1];
@@ -176,14 +165,11 @@ if (!ethnicityValues) {
       }
       selector++;
   });
-      console.log(`Ethnicity: ${statList}`);
       x = Math.floor(Math.random() * 100);
-      console.log(`x = ${x}`);
       return statList[x];
 
 }
-randomEthnicity = selectStat(ethnicityValues);
-    d3.select("#ethnicity").text(`${ethnicityTitles[randomEthnicity]}`);
+    d3.select("#ethnicity").text(`${ethnicityTitles[selectStat(ethnicityValues)]}`);
 
 })};
 
@@ -193,7 +179,6 @@ function education (stateid) {
     if (error) throw error;
   //gets the data for that state
   var state_data = response.filter(row => row.StateID== stateid)
-  //console.log(state_data)
   var highschool = parseFloat(state_data[0]["High school graduate or higher, percent of persons age 25 years+, 2013-2017"])
   var bachelor = parseFloat(state_data[0]["Bachelor's degree or higher, percent of persons age 25 years+, 2013-2017"])
   var state_name = state_data[0]["State"]
@@ -247,7 +232,6 @@ Plotly.newPlot("bar2", data3, layout3);
 
   statList = [];
   selector = 0;
-  // console.log(educationValues)
 
 if (!educationValues) {
   educationValues = [1];
@@ -260,13 +244,10 @@ if (!educationValues) {
       }
       selector++;
   });
-      // console.log(statList);
       x = Math.floor(Math.random() * 100);
-      // console.log(`x = ${x}`);
       return statList[x]; 
 
 }
-// randomEducation = selectStat(educationValues);
-//     d3.select("#education").text(`${educationTitles[randomEducation]}`);
+    d3.select("#education").text(`${educationTitles[selectStat(educationValues)]}`);
   }
    )}; 
