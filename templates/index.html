@@ -67,10 +67,6 @@
                 <td scope="row">Education:</td>
                 <td id="education" scope="row"></td>
               </tr>
-              <tr class="table-active">
-                <td scope="row">Income:</td>
-                <td id="income" scope="row"></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -78,39 +74,41 @@
     </div>
   </div>
   <div class="row">
-      <div id="plot1" class="responsive-plot">
-        <div class="col-lg-4">
-          <div id="pie1"></div>
-        </div>
-      </div>
-      <div id="plot2" class="responsive-plot">
-        <div class="col-md-4">
-          <div id="bar1"></div>
-        </div>
+    <div id="plot1" class="responsive-plot">
+      <div class="col-lg-4">
+        <div id="pie1"></div>
       </div>
     </div>
-    <div class="row">
-        <div id="plot3" class="responsive-plot">
-          <div class="col-md-4">
-            <div id="BulleT_horizontal"></div> 
-          </div>
-        <div id="plot4" class="responsive-plot">
-            <div class="col-md-4">
-              <div id="bar2"></div> 
-          </div>
-        </div>
+    <div id="plot2" class="responsive-plot">
+      <div class="col-md-4">
+        <div id="bar1"></div>
       </div>
-        
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="https://d3js.org/topojson.v2.min.js"></script>
-        <!-- <script type="text/javascript" src="/static/js/logic.js"></script> -->
-        <script src="{{ url_for('static', filename='js/selectStat.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bullet.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bulletsetup.js') }}"></script>
-        
+    </div>
+  </div>
+  <div class="row">
+
+    <div id="plot4" class="responsive-plot">
+      <div class="col-md-4">
+        <div id="bar2"></div>
+      </div>
+    </div>
+    <div id="plot3" class="responsive-plot">
+      <div class="col-md-4">
+        <div id="BulleT_horizontal"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <!-- <script type="text/javascript" src="/static/js/logic.js"></script> -->
+  <script src="{{ url_for('static', filename='js/selectStat.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bullet.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bulletsetup.js') }}"></script>
+
 </body>
 
 </html>

@@ -32,6 +32,7 @@ var stateObject = topojson.feature(us, us.objects.states).features
         working_population(d.id);
         ethnicity(d.id);
         education(d.id);
+        d3.select("#BulleT_horizontal").html('');
         bulletdata(d.id);
       })
 
