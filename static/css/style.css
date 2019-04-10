@@ -1,33 +1,33 @@
 .states :hover {
-    fill: red;
-  }
-  
+  fill: red;
+}
+
 .state-borders {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 0.5px;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-    pointer-events: none;
-  }
+  fill: none;
+  stroke: #fff;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
 #svg{
 align-content: left
-  }
+}
 #subject{
-  float: left;
+float: left;
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: auto;
-  padding-top: 40px;
-  position: relative;
-  /*width: 100%;*/
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+margin: auto;
+padding-top: 40px;
+position: relative;
+/*width: 100%;*/
 }
 table{
-  width:60%;
-  margin-left:auto; 
-  margin-right:auto;
+width:60%;
+margin-left:auto; 
+margin-right:auto;
 }
 td{width:50%;}
 .bulleT { font: 12px Arial; margin-left:auto;margin-right:auto;}
@@ -35,13 +35,11 @@ td{width:50%;}
 .bulleT .marker.s0 { fill-opacity:0; stroke: #02d9ff; stroke-width: 2px; }
 .bulleT .marker.s1 { fill-opacity:0; stroke: #000; stroke-width: 2px; }
 .bulleT .tick line { stroke: #666; stroke-width: .5px; }
-
 .bulleT .range.s0 { fill: rgb(87, 0, 122); }
 .bulleT .range.s1 { fill: rgba(166, 41, 204, 0.767); }
 .bulleT .range.s2 { fill: #efc6e9bb; }
 .bulleT .range.s3 { fill: #29A3CC; } 
 .bulleT .range.s4 { fill: #005C7A; }
-
 .bulleT .measure.s0 { fill: rgb(231, 39, 25); } */
 /* .bulleT .measure.s1 { fill: #999999; } 
 .bulleT .measure.s2 { fill: #eeeeee; }
@@ -65,3 +63,8 @@ td{width:50%;}
 .bulleT .measure.s1 { fill: rgb(207, 12, 207); }
 /* .bulleT .title { font-size: 14px; font-weight: bold; }
 .bulleT .subtitle { fill: #999; } */
+
+#chart {
+  height: 600px;
+  width: 600px;
+}

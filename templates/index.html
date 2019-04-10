@@ -10,6 +10,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -73,31 +74,37 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div id="plot1" class="responsive-plot">
-      <div class="col-lg-4">
-        <div id="pie1"></div>
-      </div>
-    </div>
-    <div id="plot2" class="responsive-plot">
-      <div class="col-md-4">
-        <div id="bar1"></div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
+        <div class="row">
+          <div id="plot1" class="responsive-plot">
+            <div class="col-lg-4">
+              <div id="pie1"></div>
+            </div>
+          </div>
+          <div id="plot2" class="responsive-plot">
+            <div class="col-md-4">
+              <div id="bar1"></div>
+            </div>
+          </div>
+        </div>
 
-    <div id="plot4" class="responsive-plot">
-      <div class="col-md-4">
-        <div id="bar2"></div>
-      </div>
-    </div>
-    <div id="plot3" class="responsive-plot">
-      <div class="col-md-4">
-        <div id="BulleT_horizontal"></div>
-      </div>
-    </div>
-  </div>
+        <div class="row">
+          <div id="plot4" class="responsive-plot">
+            <div class="col-md-4">
+              <div id="bar2"></div>
+            </div>
+          </div>
+          <div id="plot5" class="responsive-plot">
+            <div class="col-md-4">
+              <div id="chart"><canvas id="myChart"></canvas></div>
+            </div>
+          </div>
+          <div id="plot3" class="responsive-plot">
+            <div class="col-md-4">
+              <div id="BulleT_horizontal"></div>
+            </div>
+         
+          </div>
+        </div>
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>

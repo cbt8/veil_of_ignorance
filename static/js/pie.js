@@ -250,4 +250,67 @@ if (!educationValues) {
 }
     d3.select("#education").text(`${educationTitles[selectStat(educationValues)]}`);
   }
-   )}; 
+   )};
+
+     function rent(stateid) {
+       d3.json(url, function (error, response) {
+           if (error) throw error;
+       var state_data = response.filter(row => row.StateID== stateid)
+       var state_name = state_data[0]["State"] 
+       var us_data = response.filter(row => row.StateID== '100')
+       var state_burden = (parseFloat(state_data[0]["Median gross rent, 2013-2017"].replace(/\$|,/g, '')))/(parseFloat(state_data[0]["Median household income (in 2017 dollars), 2013-2017"].replace(/\$|,/g, ''))/12)*100
+       //console.log(state_burden)
+       var us_burden = (parseFloat(us_data[0]["Median gross rent, 2013-2017"].replace(/\$|,/g, '')))/(parseFloat(us_data[0]["Median household income (in 2017 dollars), 2013-2017"].replace(/\$|,/g, ''))/12)*100
+       var ctx = document.getElementById('myChart').getContext('2d');
+       var chart = new Chart(ctx, {
+           type: 'polarArea',
+           // The data for our dataset
+           data: {
+               labels: [state_name, 'US'],
+               datasets: [{
+                   label: "Rent burden",
+                   //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                   borderColor:["purple", "orange"],
+                   data: [state_burden, us_burden]
+               }]
+           },
+           options: {
+             title: {
+            display: true,
+            text: `% of total income spent on rent for ${state_name} `
+            
+        }     
+           }
+       })
+   })
+   };
+
+      //////// polar chart
+
+   //gender(42);
+   
+  //  function gender(stateid) {
+  //      d3.json(url, function (error, response) {
+  //          if (error) throw error;
+  //      var state_data = response.filter(row => row.StateID== stateid)
+  //      var state_name = state_data[0]["State"] 
+  //      var male = 100-(parseFloat(state_data[0]["Female persons, percent"]))
+  //      var female = (parseFloat(state_data[0]["Female persons, percent"]))
+  //      var ctx = document.getElementById('myChart').getContext('2d');
+  //      var chart = new Chart(ctx, {
+  //          type: 'polarArea',
+  //          // The data for our dataset
+  //          data: {
+  //              labels: ['Male','Female'],
+  //              datasets: [{
+  //                  label: `Gender breakdown for ${state_name}`,
+  //                  //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+  //                  borderColor:["purple", "orange"],
+  //                  data: [male, female]
+  //              }]
+  //          },
+  //          options: {}
+  //      })
+  //  })
+  //  };
+      //rent (42)
